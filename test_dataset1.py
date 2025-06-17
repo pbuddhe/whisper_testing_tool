@@ -1,15 +1,25 @@
 import os
 import time
 import re
+import warnings
 import numpy as np
 import whisper
+import torch
 import torchaudio
+import psutil
 from jiwer import wer, cer, process_words
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge_score import rouge_scorer
 from nltk.translate.meteor_score import single_meteor_score
 import nltk
 from glob import glob
+from typing import Dict, Tuple
+
+# Force CPU usage and suppress CUDA-related warnings
+os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Hide CUDA devices
+os.environ["WHISPER_FORCE_CPU"] = "true"  # Force CPU for Whisper
+warnings.filterwarnings("ignore", message="Performing inference on CPU when CUDA is available")
+warnings.filterwarnings("ignore", message="FP16 is not supported on CPU; using FP32 instead")
 
 # Download required NLTK data
 import nltk
@@ -66,15 +76,69 @@ def calculate_semantic_similarity(reference, hypothesis):
         'meteor': meteor
     }
 
+def get_process_memory_usage() -> Dict[str, float]:
+    """Get current process memory usage in MB."""
+    process = psutil.Process()
+    mem_info = process.memory_info()
+    
+    return {
+        'rss_mb': mem_info.rss / (1024 ** 2),  # Resident Set Size
+        'vms_mb': mem_info.vms / (1024 ** 2),  # Virtual Memory Size
+        'cpu_percent': process.cpu_percent(interval=0.1)
+    }
+
+def monitor_resources() -> Dict[str, float]:
+    """Monitor system and process resources."""
+    cpu_percent = psutil.cpu_percent(interval=0.1)
+    virtual_memory = psutil.virtual_memory()
+    
+    process_info = get_process_memory_usage()
+    
+    return {
+        'system_cpu_percent': cpu_percent,
+        'system_memory_percent': virtual_memory.percent,
+        'system_memory_used_gb': virtual_memory.used / (1024 ** 3),
+        **process_info,
+    }
+
+def print_resource_usage(metrics: Dict[str, float], prefix: str = ""):
+    """Print resource usage metrics in a readable format."""
+    print(f"\n{prefix}Resource Usage:")
+    print("  System:")
+    print(f"    CPU: {metrics['system_cpu_percent']:.1f}%")
+    print(f"    Memory: {metrics['system_memory_used_gb']:.2f} GB used ({metrics['system_memory_percent']:.1f}%)")
+    
+    print("\n  Process:")
+    print(f"    CPU: {metrics['cpu_percent']:.1f}%")
+    print(f"    Memory: {metrics['rss_mb']:.2f} MB (RSS), {metrics['vms_mb']:.2f} MB (VMS)")
+
 # ---------- CONFIG ----------
 AUDIO_DIR = "Dataset_1"  # directory of .wav files
 TRANSCRIPT_FILE = "Dataset_1/transcripts.txt"  # tab-separated: filename<TAB>ground_truth
 MODEL_SIZE = "medium"  # tiny, base, small, medium, large
 # ----------------------------
 
-# Load model
+# Load model with resource monitoring
 print(f"Loading Whisper model ({MODEL_SIZE})...")
-model = whisper.load_model(MODEL_SIZE)
+print("\n=== RESOURCE USAGE BEFORE MODEL LOAD ===")
+before_load = monitor_resources()
+print_resource_usage(before_load)
+
+# Ensure we're using CPU
+if torch.cuda.is_available():
+    torch.cuda.is_available = lambda: False
+
+start_time = time.time()
+model = whisper.load_model(MODEL_SIZE, device="cpu")
+model = model.to("cpu")  # Ensure model is on CPU
+end_time = time.time()
+latency = end_time - start_time
+
+print("\n=== RESOURCE USAGE AFTER MODEL LOAD ===")
+after_load = monitor_resources()
+print_resource_usage(after_load)
+
+print(f"\nModel load time: {latency:.2f} seconds")
 
 # Load reference transcriptions
 references = {}
@@ -98,6 +162,12 @@ total_bleu, total_rouge1, total_rouge2, total_rougeL, total_meteor = 0, 0, 0, 0,
 total_confidence = 0
 file_count = 0
 
+# Resource monitoring metrics
+peak_cpu = 0
+peak_memory = 0
+total_inference_time = 0
+total_audio_duration = 0
+
 # Process each audio file
 for audio_file in glob(os.path.join(AUDIO_DIR, "*.wav")):
     filename = os.path.basename(audio_file)
@@ -108,10 +178,37 @@ for audio_file in glob(os.path.join(AUDIO_DIR, "*.wav")):
     waveform, sample_rate = torchaudio.load(audio_file)
     duration = waveform.shape[1] / sample_rate
 
-    # Transcribe with Whisper
+    # Transcribe with Whisper and monitor resources
+    print(f"\n=== PROCESSING: {filename} ===")
+    print(f"Audio duration: {duration:.2f} seconds")
+    
+    # Get resources before transcription
+    before_transcribe = monitor_resources()
+    
+    # Perform transcription
     start_time = time.time()
     result = model.transcribe(audio_file)
     end_time = time.time()
+    
+    # Get resources after transcription
+    after_transcribe = monitor_resources()
+    
+    # Calculate resource usage during transcription
+    transcribe_time = end_time - start_time
+    cpu_usage = after_transcribe['cpu_percent']
+    memory_usage = after_transcribe['rss_mb'] - before_transcribe['rss_mb']
+    
+    # Update peak metrics
+    peak_cpu = max(peak_cpu, cpu_usage)
+    peak_memory = max(peak_memory, after_transcribe['rss_mb'])
+    
+    # Update total inference time and audio duration for RTF calculation
+    total_inference_time += transcribe_time
+    total_audio_duration += duration
+    
+    print(f"\nTranscription completed in {transcribe_time:.2f} seconds")
+    print(f"CPU Usage: {cpu_usage:.1f}%")
+    print(f"Memory Usage: {memory_usage:.2f} MB")
 
     predicted = result["text"].strip().lower()
     reference = references[filename].strip().lower()
@@ -177,7 +274,7 @@ for audio_file in glob(os.path.join(AUDIO_DIR, "*.wav")):
     total_confidence += file_confidence
     file_count += 1
 
-# Averages
+# Averages and resource summary
 if file_count > 0:
     print("\n=== AVERAGE PERFORMANCE ===")
     print(f"Word-level Metrics:")
@@ -194,9 +291,22 @@ if file_count > 0:
     print(f"  - METEOR: {total_meteor / file_count:.4f}")
     print(f"  - ROUGE-1/2/L: {total_rouge1 / file_count:.4f}/{total_rouge2 / file_count:.4f}/{total_rougeL / file_count:.4f}")
     
-    print("\nPerformance:")
+    print("\nPerformance Metrics:")
     print(f"  - Avg Latency: {total_latency / file_count:.2f} seconds")
     print(f"  - Avg RTF: {total_rtf / file_count:.2f}")
     print(f"  - Avg Confidence: {total_confidence / file_count:.2f}")
+    
+    print("\nResource Usage Summary:")
+    print(f"  - Peak CPU Usage: {peak_cpu:.1f}%")
+    print(f"  - Peak Memory Usage: {peak_memory:.2f} MB")
+    
+    # Calculate and print real-time factor (RTF) metrics
+    if total_audio_duration > 0:
+        overall_rtf = total_inference_time / total_audio_duration
+        print(f"\nEfficiency Metrics:")
+        print(f"  - Total Audio Duration: {total_audio_duration:.2f} seconds")
+        print(f"  - Total Processing Time: {total_inference_time:.2f} seconds")
+        print(f"  - Overall RTF: {overall_rtf:.2f} (lower is better)")
+        print(f"  - Processing Speed: {total_audio_duration / total_inference_time:.2f}x real-time")
 else:
     print("No matching audio files with transcripts found.")
