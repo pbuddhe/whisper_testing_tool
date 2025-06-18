@@ -1,0 +1,241 @@
+Splitting audio file: test.wav with chunk size: 3s
+Thread 1: Started.
+Thread 1: Processing chunk 0...
+Thread 2: Started.
+Thread 2: Processing chunk 1...
+Thread 1: Processing chunk 2...
+Thread 2: Processing chunk 3...
+Thread 1: Processing chunk 4...
+Thread 2: Processing chunk 5...
+Thread 1: Processing chunk 6...
+Thread 2: Processing chunk 7...
+Thread 1: Processing chunk 8...
+Thread 2: Processing chunk 9...
+Thread 1: Processing chunk 10...
+Thread 2: Processing chunk 11...
+Thread 1: Processing chunk 12...
+Thread 2: Processing chunk 13...
+Thread 1: Processing chunk 14...
+Thread 2: Processing chunk 15...
+Thread 1: Processing chunk 16...
+Thread 2: Processing chunk 17...
+Thread 1: Processing chunk 18...
+Thread 2: Processing chunk 19...
+Thread 1: Processing chunk 20...
+Thread 2: Processing chunk 21...
+Thread 1: Processing chunk 22...
+Thread 2: Processing chunk 23...
+Thread 1: Processing chunk 24...
+Thread 2: Processing chunk 25...
+Thread 1: Processing chunk 26...
+Thread 2: Processing chunk 27...
+Thread 1: Processing chunk 28...
+Thread 2: Processing chunk 29...
+Thread 1: Processing chunk 30...
+Thread 2: Processing chunk 31...
+Thread 1: Processing chunk 32...
+Thread 2: Processing chunk 33...
+Thread 1: Processing chunk 34...
+Thread 2: Processing chunk 35...
+Thread 1: Processing chunk 36...
+Thread 2: Processing chunk 37...
+Thread 1: Processing chunk 38...
+Thread 2: Processing chunk 39...
+Thread 1: Processing chunk 40...
+Thread 2: Processing chunk 41...
+Thread 1: Processing chunk 42...
+Thread 2: Processing chunk 43...
+Thread 1: Processing chunk 44...
+Thread 2: Processing chunk 45...
+Thread 1: Processing chunk 46...
+Thread 2: Processing chunk 47...
+Thread 1: Processing chunk 48...
+Thread 2: Processing chunk 49...
+Thread 1: Processing chunk 50...
+Thread 2: Processing chunk 51...
+Thread 1: Processing chunk 52...
+Thread 2: Processing chunk 53...
+Thread 1: Processing chunk 54...
+Thread 2: Processing chunk 55...
+Thread 1: Exiting.
+Thread 2: Exiting.
+
+Result for chunk 1:
+{'text': 'Go! Do you hear? But in less than f-', 'duration': 3.0, 'process_time': 8.744508981704712, 'confidence': -0.430447774774888, 'rtf': 2.914836327234904}
+
+Result for chunk 2:
+{'text': 'minutes the staircase groaned beneath an extraordinary weight.', 'duration': 3.0, 'process_time': 14.012406587600708, 'confidence': -0.3541466849190848, 'rtf': 4.670802195866902}
+
+Result for chunk 3:
+{'text': 'At this moment the whole soul of the old man seemed to be in a state of shock.', 'duration': 3.0, 'process_time': 15.081737279891968, 'confidence': -0.6369094848632812, 'rtf': 5.027245759963989}
+
+Result for chunk 4:
+{'text': 'centered in his eyes which became bloodshot, the veins of his', 'duration': 3.0, 'process_time': 15.742101669311523, 'confidence': -0.47439897060394287, 'rtf': 5.247367223103841}
+
+Result for chunk 5:
+{'text': 'the throat swelled, his cheeks and temples became purple as', 'duration': 3.0, 'process_time': 15.236008882522583, 'confidence': -0.3876710573832194, 'rtf': 5.078669627507527}
+
+Result for chunk 6:
+{'text': 'though he was struck with epilepsy. Nothing was wanting to complete the', 'duration': 3.0, 'process_time': 15.289974689483643, 'confidence': -0.3126917779445648, 'rtf': 5.096658229827881}
+
+Result for chunk 7:
+{'text': 'but the utterance of a cry, and the cry is', 'duration': 3.0, 'process_time': 15.212575674057007, 'confidence': -0.3397503852844238, 'rtf': 5.070858558019002}
+
+Result for chunk 8:
+{'text': 'issued from his pores, if we may thus speak.', 'duration': 3.0, 'process_time': 14.935879230499268, 'confidence': -0.37703490257263184, 'rtf': 4.978626410166423}
+
+Result for chunk 9:
+{'text': 'a cry frightful in its silence.', 'duration': 3.0, 'process_time': 14.389595985412598, 'confidence': -0.4064871614629572, 'rtf': 4.796531995137532}
+
+Result for chunk 10:
+{'text': 'and he rushed towards the old man and made him inhale a powerful restore.', 'duration': 3.0, 'process_time': 14.999612092971802, 'confidence': -0.5419078826904297, 'rtf': 4.9998706976572675}
+
+Result for chunk 11:
+{'text': 'SORTIVE.', 'duration': 3.0, 'process_time': 14.848490715026855, 'confidence': -0.8678312301635742, 'rtf': 4.949496905008952}
+
+Result for chunk 12:
+{'text': 'of this touching emotion turned away, and Villefort, without', 'duration': 3.0, 'process_time': 14.572291135787964, 'confidence': -0.40407034754753113, 'rtf': 4.857430378595988}
+
+Result for chunk 13:
+{'text': 'seeking any further explanation, and attracted towards him.', 'duration': 3.0, 'process_time': 15.124236345291138, 'confidence': -0.2888811184809758, 'rtf': 5.041412115097046}
+
+Result for chunk 14:
+{'text': 'by the irresistible magnetism which draws us towards those who are more capable of the', 'duration': 3.0, 'process_time': 15.580681324005127, 'confidence': -0.7073767401955344, 'rtf': 5.193560441335042}
+
+Result for chunk 15:
+{'text': 'who have loved the people for whom we mourn, extended', 'duration': 3.0, 'process_time': 15.6640625, 'confidence': -0.27563384373982747, 'rtf': 5.221354166666667}
+
+Result for chunk 16:
+{'text': 'his hand towards the young man. For some time.', 'duration': 3.0, 'process_time': 15.18722414970398, 'confidence': -0.36736977100372314, 'rtf': 5.062408049901326}
+
+Result for chunk 17:
+{'text': 'Nothing was heard in that chamber but sobs!', 'duration': 3.0, 'process_time': 15.003344535827637, 'confidence': -0.350343080667349, 'rtf': 5.001114845275879}
+
+Result for chunk 18:
+{'text': 'and prayers. What do you mean, sir?', 'duration': 3.0, 'process_time': 14.979709386825562, 'confidence': -0.3768328666687012, 'rtf': 4.9932364622751875}
+
+Result for chunk 19:
+{'text': '"\'Oh, you rave, sir!\' exclaimed Villefoo.', 'duration': 3.0, 'process_time': 15.501987218856812, 'confidence': -0.4713428396927683, 'rtf': 5.1673290729522705}
+
+Result for chunk 20:
+{'text': 'in vain endeavoring to escape the net in which he was taken.', 'duration': 3.0, 'process_time': 16.84789204597473, 'confidence': -0.2996521276586196, 'rtf': 5.61596401532491}
+
+Result for chunk 21:
+{'text': 'I rave. Do you know the assassin?', 'duration': 3.0, 'process_time': 16.413099765777588, 'confidence': -0.40074883974515474, 'rtf': 5.471033255259196}
+
+Result for chunk 22:
+{'text': 'asked Morale. Notier looked upon Morale', 'duration': 3.0, 'process_time': 14.973070621490479, 'confidence': -0.7131024874173678, 'rtf': 4.991023540496826}
+
+Result for chunk 23:
+{'text': 'with one of those melancholy smiles which had so often made val...', 'duration': 3.0, 'process_time': 15.449737071990967, 'confidence': -0.3255680931939019, 'rtf': 5.149912357330322}
+
+Result for chunk 24:
+{'text': 'happy, and thus fixed his attention.', 'duration': 3.0, 'process_time': 15.00995922088623, 'confidence': -0.5193428993225098, 'rtf': 5.00331974029541}
+
+Result for chunk 25:
+{'text': 'sadly." Yes, replied Noitier.', 'duration': 3.0, 'process_time': 14.569483995437622, 'confidence': -0.5670830181666783, 'rtf': 4.856494665145874}
+
+Result for chunk 26:
+{'text': "The old man's eyes remained fixed on the door, esmerell.", 'duration': 3.0, 'process_time': 15.541513919830322, 'confidence': -0.28277306807668584, 'rtf': 5.1805046399434405}
+
+Result for chunk 27:
+{'text': 'Yes. Must I leave alone?', 'duration': 3.0, 'process_time': 15.418067932128906, 'confidence': -0.5450247526168823, 'rtf': 5.139355977376302}
+
+Result for chunk 28:
+{'text': 'No. But can he understand you?', 'duration': 3.0, 'process_time': 14.686566352844238, 'confidence': -0.31837525734534633, 'rtf': 4.895522117614746}
+
+Result for chunk 29:
+{'text': 'Yes. Gentlemen, he said in a-', 'duration': 3.0, 'process_time': 14.764214277267456, 'confidence': -0.7461793763296944, 'rtf': 4.921404759089152}
+
+Result for chunk 30:
+{'text': 'horse voice. Give me your word of honor that this horrible secret shall', 'duration': 3.0, 'process_time': 15.261953830718994, 'confidence': -0.3290680717019474, 'rtf': 5.087317943572998}
+
+Result for chunk 31:
+{'text': 'forever remain buried amongst ourselves.', 'duration': 3.0, 'process_time': 14.826399087905884, 'confidence': -0.32216350237528485, 'rtf': 4.942133029301961}
+
+Result for chunk 32:
+{'text': "men drew back. My father has revealed the culprit's name.", 'duration': 3.0, 'process_time': 14.99424433708191, 'confidence': -0.3673003249698215, 'rtf': 4.99808144569397}
+
+Result for chunk 33:
+{'text': 'My father thirsts for revenge as much as you do, yet-', 'duration': 3.0, 'process_time': 15.791032314300537, 'confidence': -0.3430354174445657, 'rtf': 5.263677438100179}
+
+Result for chunk 34:
+{'text': 'even he conjures you as I do to keep this secret.', 'duration': 3.0, 'process_time': 15.516777276992798, 'confidence': -0.2274237424135208, 'rtf': 5.172259092330933}
+
+Result for chunk 35:
+{'text': 'Do you not, father?" Morales suffered an exclamation.', 'duration': 3.0, 'process_time': 15.635927438735962, 'confidence': -0.44895542992485893, 'rtf': 5.211975812911987}
+
+Result for chunk 36:
+{'text': 'of horror and surprise to escape him. The old man made a surprise.', 'duration': 3.0, 'process_time': 39.6250433921814, 'confidence': -0.49099025726318357, 'rtf': 13.208347797393799}
+
+Result for chunk 37:
+{'text': 'sign in the affirmative. It was something terrible to witness.', 'duration': 3.0, 'process_time': 39.194108963012695, 'confidence': -0.2359255313873291, 'rtf': 13.064702987670898}
+
+Result for chunk 38:
+{'text': "the silent agony, the mute despair of Noitier who's", 'duration': 3.0, 'process_time': 15.05781364440918, 'confidence': -0.5704983472824097, 'rtf': 5.01927121480306}
+
+Result for chunk 39:
+{'text': "tears silently rolled down his cheeks but he's", 'duration': 3.0, 'process_time': 14.821526527404785, 'confidence': -0.6957316398620605, 'rtf': 4.940508842468262}
+
+Result for chunk 40:
+{'text': 'stopped on the landing. He had not the courage to again visit the', 'duration': 3.0, 'process_time': 15.131914377212524, 'confidence': -0.3258487196529613, 'rtf': 5.043971459070842}
+
+Result for chunk 41:
+{'text': 'the death chamber. The two doctors therefore entered the room.', 'duration': 3.0, 'process_time': 15.598100185394287, 'confidence': -0.3097969503963695, 'rtf': 5.199366728464763}
+
+Result for chunk 42:
+{'text': 'alone. Noitier was near the bed, pale, low.', 'duration': 3.0, 'process_time': 15.408530473709106, 'confidence': -0.47441981820499196, 'rtf': 5.136176824569702}
+
+Result for chunk 43:
+{'text': 'motionless and silent as the corpse.', 'duration': 3.0, 'process_time': 15.476417303085327, 'confidence': -0.40352682633833453, 'rtf': 5.158805767695109}
+
+Result for chunk 44:
+{'text': 'doctor approached with the indifference of a man accustomed to Spanish culture.', 'duration': 3.0, 'process_time': 15.478832006454468, 'confidence': -0.38745911916097003, 'rtf': 5.159610668818156}
+
+Result for chunk 45:
+{'text': 'and half his time amongst the dead. He then lifted the sheet.', 'duration': 3.0, 'process_time': 15.65543508529663, 'confidence': -0.26481021078009354, 'rtf': 5.218478361765544}
+
+Result for chunk 46:
+{'text': 'which was placed over the face and just unclosed to the l-', 'duration': 3.0, 'process_time': 15.870500802993774, 'confidence': -0.4372229841020372, 'rtf': 5.290166934331258}
+
+Result for chunk 47:
+{'text': 'lips. The nearest, said the district doctor, is a good', 'duration': 3.0, 'process_time': 19.188571214675903, 'confidence': -0.2815619707107544, 'rtf': 6.396190404891968}
+
+Result for chunk 48:
+{'text': 'Italian Abbe who lives next door to you shall I call on him as', 'duration': 3.0, 'process_time': 19.09141516685486, 'confidence': -0.44225846396552193, 'rtf': 6.363805055618286}
+
+Result for chunk 49:
+{'text': 'I pass. Daverney," said Villafort.', 'duration': 3.0, 'process_time': 15.532509803771973, 'confidence': -0.5746193528175354, 'rtf': 5.177503267923991}
+
+Result for chunk 50:
+{'text': 'Be so kind I beseech you as to accompany this gentleman.', 'duration': 3.0, 'process_time': 15.641477108001709, 'confidence': -0.2636580467224121, 'rtf': 5.213825702667236}
+
+Result for chunk 51:
+{'text': 'Here is the key of the door so that you can go in and out as you please.', 'duration': 3.0, 'process_time': 16.102068662643433, 'confidence': -0.14780512723055753, 'rtf': 5.3673562208811445}
+
+Result for chunk 52:
+{'text': 'You will bring the priest with you, and will oblige me by introducing-', 'duration': 3.0, 'process_time': 16.004098176956177, 'confidence': -0.3212059924477025, 'rtf': 5.334699392318726}
+
+Result for chunk 53:
+{'text': "him into my child's room. Do you wish to see him?", 'duration': 3.0, 'process_time': 15.528066873550415, 'confidence': -0.2964793373556698, 'rtf': 5.176022291183472}
+
+Result for chunk 54:
+{'text': 'I only wish to be alone. You will excuse me, will you not?', 'duration': 3.0, 'process_time': 15.684211492538452, 'confidence': -0.20277788764552065, 'rtf': 5.228070497512817}
+
+Result for chunk 55:
+{'text': 'I am going, sir, and I do not hesitate to say that no-', 'duration': 3.0, 'process_time': 16.016882181167603, 'confidence': -0.3331182881405479, 'rtf': 5.338960727055867}
+
+Result for chunk 56:
+{'text': 'prayers will be more fervent than mine.', 'duration': 1.7850625, 'process_time': 15.567605257034302, 'confidence': -0.2592372160691481, 'rtf': 8.721042124314584}
+
+=== PROCESSING COMPLETE (CPU ONLY) ===
+ - Total Audio Duration: 166.79 seconds
+ - Total Processing Time (sum of all chunk processing times across threads): 907.48 seconds
+ - Overall Wall-Clock Time: 464.79 seconds
+ - Overall Wall-Clock RTF: 2.79 (lower is better)
+ - Overall Processing Speed (Wall-Clock): 0.36x real-time
+ - Avg Latency Per Chunk: 16.21 seconds
+ - Avg RTF Per Chunk: 5.46
+ - Avg Confidence: -0.41
+ - Peak CPU Usage: 84.6%
+ - Peak Memory Usage: 779.94 MB
